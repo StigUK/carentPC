@@ -27,6 +27,7 @@ use Yii;
  */
 class CarModel extends \yii\db\ActiveRecord
 {
+    const SCENARIO_CREATE='create';
     /**
      * {@inheritdoc}
      */
@@ -46,6 +47,13 @@ class CarModel extends \yii\db\ActiveRecord
             [['name', 'picture', 'engine_volume', 'engine_type', 'body', 'transmission'], 'string', 'max' => 255],
             [['category'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category' => 'id']],
         ];
+    }
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios['create'] = ['name','seats'];
+        return $scenarios;
     }
 
     /**

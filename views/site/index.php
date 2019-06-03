@@ -126,7 +126,7 @@ $this->title = 'Carent';
         ?>
         <div class="col text-center col-lg-4">
                 <div class="container cartop">
-                        <img class="img-achievement" src="web/comunity.png">
+                        <img class="img-achievement" src="images/comunity.png">
                         <h4  class="text-center">
                            <?php echo $usercount ?> зареєстрованих користувачів.
                         </h4>
@@ -135,7 +135,7 @@ $this->title = 'Carent';
 
         <div class="col text-center col-lg-4">
             <div class="container cartop">
-                <img class="img-achievement img-orderoico" src="web/orderico.png">
+                <img class="img-achievement img-orderoico" src="images/orderico.png">
                 <row>
 
                     <h4  class="text-center">
@@ -147,7 +147,7 @@ $this->title = 'Carent';
 
         <div class="col text-center col-lg-4">
             <div class="container cartop">
-                <img class="img-achievement" src="web/carico.png">
+                <img class="img-achievement" src="images/carico.png">
                 <h4  class="text-center">
                     <?php echo $carcount ?> доступних автомобілів.
                 </h4>

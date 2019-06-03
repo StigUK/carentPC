@@ -30,7 +30,7 @@ AppAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'CaRent',
-        'brandImage' => 'http://carent.zzz.com.ua/web/public/images/logoA.png',
+        'brandImage' => 'https://i.ibb.co/bztRZnS/LogoA.png',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',

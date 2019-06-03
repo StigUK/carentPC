@@ -19,8 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
             <div class="col col-sm-6">
                 <div class="row">
-                    <img class="userphoto img-circle img-fluid img-thumbnail" src="http://carent.zzz.com.ua/web/uploads/User/<?=$userinfo->photo_user?>">
-                    <img class="verphoto" src="http://carent.zzz.com.ua/web/public/images/<?php
+                    <img class="userphoto img-circle img-fluid img-thumbnail" src="../uploads/User/<?=$userinfo->photo_user?>">
+                    <img class="verphoto" src="../images/<?php
                     if(Yii::$app->user->identity->active==0)
                     {
                         echo 'notverificated.png';

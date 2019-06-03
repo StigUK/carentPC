@@ -34,7 +34,8 @@ PublicAsset::register($this);
     <?php
     NavBar::begin([
         'brandLabel' => 'CaRent',
-        'brandImage' => 'http://carent.zzz.com.ua/web/public/images/logo.png',
+        //'brandImage' => 'http://carent.zzz.com.ua/web/public/images/logo.png',
+        'brandImage' => 'https://i.ibb.co/m8LpPCL/logo.png',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
