@@ -110,6 +110,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ?></span> грн.
                         </div>
                     </div>
+
                     <br>
                     <?php /*<div class="row">
                         <div class="col col-lg-12">
@@ -127,6 +128,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     ActiveForm::end();
                     ?>
                 </h4>
+                <div id="liqpay_checkout"></div>
+                <form method="POST" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8">
+                    <input type="hidden" name="data" value="eyJwdWJsaWNfa2V5Ijoic2FuZGJveF9pMzk4NjExOTU5NTMiLCJ2ZXJzaW9uIjoiMyIsImFjdGlvbiI6InBheSIsImFtb3VudCI6IjMiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoidGVzdCIsIm9yZGVyX2lkIjoiMDAwMDAxIn0="/>
+                    <input type="hidden" name="signature" value="jGu+HGwurkc5NfyjU4X11AshGfA="/>
+                    <input type="image" src="//static.liqpay.ua/buttons/p1ru.radius.png"/>
+                </form>
             </div>
         </div>
     </carmodel>

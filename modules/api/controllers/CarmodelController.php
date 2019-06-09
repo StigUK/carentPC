@@ -43,4 +43,16 @@ class CarmodelController extends \yii\web\Controller
             return array('status'=>true,'data'=>'No CarModels found.');
         }
     }
+
+    public function getCarmodel($id)
+    {
+        \Yii::$app->response->format=Response::FORMAT_JSON;
+        $car_model = CarModel::findOne(['id'=>$id]);
+        if($car_model!=null){
+            return $car_model;
+        }
+        else {
+            return array('status'=>true,'data'=>'No CarModel found.');
+        }
+    }
 }

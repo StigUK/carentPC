@@ -333,9 +333,10 @@ class SiteController extends Controller
                             //$order_ = new Order();
                             //$order_->car_id=1;
                             //var_dump($order_->save(false)); die;
+
                             if($order->save(false)){
-                                Yii::$app->session->setFlash('success','Ваше бронювання прийнято. Очікуйте підтердження!');
-                                return $this->refresh();
+                                //Yii::$app->session->setFlash('success','Ваше бронювання прийнято. Очікуйте підтердження!');
+                                //return $this->refresh();
                             }
                             else{
                                 Yii::$app->session->setFlash('error','Помилка оформлення замовлення');

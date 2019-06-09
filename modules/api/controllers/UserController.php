@@ -2,17 +2,32 @@
 
 namespace app\modules\api\controllers;
 
+use app\models\CarModel;
+use app\models\ImageUpload;
 use app\models\User;
 use app\models\Userinfo;
+use Faker\Provider\Image;
 use Yii;
+use yii\rest\ActiveController;
 use yii\web\Response;
+use yii\web\UploadedFile;
 
-class UserController extends \yii\web\Controller
+class UserController extends ActiveController
 {
+    public $modelClass = 'app\models\User';
+
     public function actionIndex()
     {
         Yii::$app->response->redirect("../../");
     }
+
+    public function actions()
+    {
+        $actions = parent::actions();
+        unset($actions['uploadphoto']);
+        return $actions;
+    }
+
 
     public function actionSignin($login, $password)
     {
@@ -45,6 +60,7 @@ class UserController extends \yii\web\Controller
             $newuser = User::findOne(['login'=>$login]);
             $userinfo = new Userinfo();
             $userinfo->user=$newuser->id;
+            $userinfo->photo_user="no_image.png";
             $userinfo->save(false);
             return $newuser;
         }
@@ -63,13 +79,12 @@ class UserController extends \yii\web\Controller
         }
     }
 
-    public function actionInfo($login)
+    public function actionInfo($id)
     {
         \Yii::$app->response->format=Response::FORMAT_JSON;
-        $user = User::findOne(['login'=>$login]);
-        if($user!=null)
+        $userinfo = Userinfo::findOne(['user'=>$id]);
+        if($userinfo!=null)
         {
-            $userinfo = Userinfo::findOne(['id'=>$user->id]);
             return $userinfo;
         }
         else return null;
@@ -132,8 +147,35 @@ class UserController extends \yii\web\Controller
             return false;
     }
 
-    public function actionUpdatepagephoto()
-    {
+    public $documentPath = 'documents/';
 
+    public function verbs()
+    {
+        $verbs = parent::verbs();
+        $verbs[ "upload" ] = ['POST' ];
+        return $verbs;
     }
+
+    public function actionUploadphoto($userid)
+    {
+        $userinfo = Userinfo::findOne(['user'=>$userid]);
+        $userinfo->photo_passport='a';
+        if($userinfo!=null)
+        {
+            $uploads = \yii\web\UploadedFile::getInstancesByName('upfile');
+            if (empty($uploads)){
+                return false;
+                // handle error reporting somewhere else
+            }
+            $path =  Yii::getAlias('@web').'uploads/User/';
+            foreach ($uploads as $upload){
+                $filename = time() .'_'. $upload->name ;
+                $userinfo->photo_user=$filename;
+                $upload->saveAs($path.$filename);
+            }
+            $userinfo->save(false);
+        }
+        return false;
+    }
+
 }
