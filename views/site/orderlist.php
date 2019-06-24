@@ -4,6 +4,7 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
@@ -21,7 +22,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
                 <h2 class="text-center">Список бронювань</h2>
 
-                <?php foreach($orders as $order): ?>
+                <?php
+                ArrayHelper::multisort($orders, ['active'], [SORT_ASC]);
+                foreach($orders as $order): ?>
                     <order class="post col-lg-12">
                         <div class="post-thumb">
                             <?php
@@ -42,19 +45,19 @@ $this->params['breadcrumbs'][] = $this->title;
                             <p>
                                 Статус: <?php
                                 if($order->active==0){
-                                    echo '<span class='.'"text-danger"'.'>Не підтверджено<span>';
+                                    echo '<span class='.'"text-warning"'.'>Заброньовано<span>';
                                 }
                                 if($order->active==1)
                                 {
-                                    echo '<span class='.'"text-success"'.'>Підтверджено<span>';
+                                    echo '<span class='.'"text-success"'.'>Завершено<span>';
                                 }
                                 if($order->active==2)
                                 {
-                                    echo '<span class='.'"text-info"'.'>Очікування оплати<span>';
+                                    echo '<span class='.'"text-info"'.'>Активне<span>';
                                 }
                                 if($order->active==3)
                                 {
-                                    echo '<span class='.'"text-warning"'.'>Завершено<span>';
+                                    echo '<span class='.'"text-danger"'.'>Відмінено<span>';
                                 }
                                 ?>
                             </>
