@@ -30,9 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_id',
             'date',
             'term',
-            //'active',
-            //'price',
-
+            'active',
+            'price',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

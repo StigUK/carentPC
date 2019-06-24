@@ -70,11 +70,11 @@
         <h4>
             <nav class="navigation">
                 <ul class="mainmenu">
-                    <li><a href="/site/index">Повернутись у режим користувача</a></li>
+                    <li><a href="../">Повернутись у режим користувача</a></li>
+                    <li><a href="<?php echo "/admin/stat?y=".date('Y')?>">Статистика</a></li>
                     <li><a href="/admin/order">Бронювання</a></li>
                     <li><a href="/admin/carmodel">Автомобілі</a>
                         <ul class="submenu">
-                            <li><a href="/admin/car">а</a></li>
                             <li><a href="/admin/category">Категорії</a></li>
                         </ul>
                     </li>

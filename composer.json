@@ -22,7 +22,9 @@
         "yiisoft/yii2-jui": "^2.0",
         "facebook/webdriver": "^1.4",
         "guzzlehttp/guzzle": "^6.3",
-      "ext-json": "*"
+      "ext-json": "*",
+        "miloschuman/yii2-highcharts-widget": "7.0",
+        "delagics/yii2-liqpay": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
